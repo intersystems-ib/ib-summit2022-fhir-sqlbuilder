@@ -1,0 +1,12 @@
+// unexpire passwords for dev mode
+zn "%SYS"
+do ##class(Security.Users).UnExpireUserPasswords("*")
+do $system.License.Upgrade()
+
+// install fhir server (DEMO) for SQLBuilder and load initial sample data
+zn "HSLIB"
+do ##class(HS.HC.FHIRSQL.Utils.Setup).Setup("/opt/irisapp/fhirdata/")
+//do ##class(HS.HC.FHIRSQL.Utils.Setup).CreateWebApps("HSSYS")
+//Do ##class(HS.HC.FHIRSQL.Utils.Setup).DefineDocDBs("HSSYS")
+
+halt
