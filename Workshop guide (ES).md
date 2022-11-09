@@ -5,6 +5,7 @@ Por estas alturas, la mayoría de los actores en el mondo sanitario entienden el
 # ¿Qué necesitas instalar?
 Se preparó este taller de manera a evitar dependencias para la asistencia. Para poder seguir la sesión con tu propio portátil se requiere:
 * navegador web (chrome, safari, edge...)
+
 Se recomienda también la instalación de:
 * cliente Rest (Curl, Postman, ARC...)
 
