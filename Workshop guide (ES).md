@@ -24,7 +24,7 @@ A lo largo de este taller habremos de:
 Empezaremos la sessión con una instancia de InterSystems IRIS for Health previamente instalada en un servidor Windows alojado en la nube de AWS. A cada asistente se asignará una máquina virtual mediante su dirección de IP. En esta máquina tendremos los siguientes elementos relevantes:
 * Instancia de InterSystems IRIS for Health 2022.3 (todavía no liberada);
 * Unos 1.200 bundles fhir con un promedio de 800 recursos/bundle (en el sistema de ficheros);
-** Unos 850 de ellos ya subidos a la instancia
+    * Unos 850 de ellos ya subidos a la instancia
 * Endpoint FHIR cargado con unos 850 bundles;
 * Classe: IBSummit22.ResourceChangeBPL.cls
 De manera a preparar debidamente el taller se propone abrir 3 pestañas en el navegador web con los siguientes enlaces:
