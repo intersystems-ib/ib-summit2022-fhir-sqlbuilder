@@ -172,27 +172,27 @@ Ya tenemos el analisis terminado en nuestro endpoint/repositorio - URL: /csp/hea
     - Package Name
         - Usaremos DEMO como esquema SQL al que proyectar nuestra transformación
     - Launch Analysis Task
-7.	Acceder al Portal de Gestión en namespace DEMO
-8.	Ir a System Explorer -> SQL
-9.	En Filter ponerle DEMO*
-10.	Abrir la pestaña Tables
-11.	Podremos hacer algunos queries para comprobar el número de recursos en nuestro repositorio:
+8.	Acceder al Portal de Gestión en namespace DEMO
+9.	Ir a System Explorer -> SQL
+10.	En Filter ponerle DEMO*
+11.	Abrir la pestaña Tables
+12.	Podremos hacer algunos queries para comprobar el número de recursos en nuestro repositorio:
     - SELECT count(*) FROM DEMO.Observation
     - SELECT count(*) FROM DEMO.Patient
     - SELECT count(*) FROM DEMO.Encounter
-12.	Podremos también simular alguna analítica:
+13.	Podremos también simular alguna analítica:
     - Valores de triglicéridos por genero … 
         - SELECT Count(*) as "# Count",P.Gender, AVG(value) as "Avg Value", MAX(value) as "Max Value", MIN(value) as "Min Value" FROM DEMO.Observation Ob, DEMO.Patient P WHERE (Ob.Subject=P.Key) and (Code='2571-8') GROUP BY p.Gender
     - Pacientes en riesgo de enfermedad debido a altos niveles de triglicéridos
         - SELECT P.* FROM DEMO.Observation Ob, DEMO.Patient P WHERE (Ob.Subject=P.Key) and (Code='2571-8') and Value>150 Group by p.ID
     - Pacientes de genero masculino con Panel de ARN del SARS-CoV-2 (COVID-19)
         - SELECT COUNT(*) FROM DEMO.Patient P LEFT OUTER JOIN DEMO.Observation Ob ON (P.Key=Ob.Subject) WHERE (Code='94531-1') AND (P.Gender='male')
-13.	De manera a que veamos la sincronización del repositorio fhir con la proyección SQL, lanzemos un proceso de carga masiva de bundles fhir. 
+14.	De manera a que veamos la sincronización del repositorio fhir con la proyección SQL, lanzemos un proceso de carga masiva de bundles fhir. 
 ```
 Zn “DEMO”
 do ##class(HS.FHIRServer.Tools.DataLoader).SubmitResourceFiles("C:\fhir_bundles_300","FHIRSERVER","/csp/healthshare/demo/fhir/r4")
 ```
-14.	Mientras se están cargando los 305 bundles fhir – algo que tardará unos minutos – aprovechemos para repetir las búsquedas SQL y comprobar la actualización en tiempo real de las tablas SQL.
+15.	Mientras se están cargando los 305 bundles fhir – algo que tardará unos minutos – aprovechemos para repetir las búsquedas SQL y comprobar la actualización en tiempo real de las tablas SQL.
 
 ## Cierre del taller
 Para terminar, haremos una demostración del consumo de datos fhir proyectados a SQL. Para ello usaremos el conector IRIS de PowerBI. La hará el ponente desde su laptop.
