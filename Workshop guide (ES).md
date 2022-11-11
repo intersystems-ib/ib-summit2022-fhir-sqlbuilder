@@ -55,7 +55,7 @@ Se trata de un paso previo que tardará unos minutos hasta que termine. Para apr
 Se trata de una tarea de largo recorrido. Podremos seguir la evolución de esta tarea a través de la información en ‘Percent Complete’. En cuanto terminemos los demás ejercicios ya se habrá terminado y nos permitirá seguir con los ejercicios de analítica.
 
 ## Crear y configurar un nuevo endpoint/repositorio FHIR
-1.	Acceder al Portal de Gestión
+1.	Acceder al Portal de Gestión. Seleccionar el namespace DEMO.
 2.	Ir a Health -> FHIR Configuration -> Server Configuration
 3.	Tal y como podemos ver ya tenemos un endpoint creado – que se está analizando. Dejemos que se siga analizando. Creemos un nuevo endpoint/repositorio para seguir con los ejercicios. 
 4.	Ir a ‘Add Endpoint’
@@ -164,7 +164,15 @@ Ya tenemos el analisis terminado en nuestro endpoint/repositorio - URL: /csp/hea
         - PeriodStart
         - SubjectReference (Subject) (Index).
     - Revisar y done
-7.	Acceder al Portal de Gestión 
+7.  Crear una nueva proyección con:
+    - FHIR Repository
+        - Elegir el analisis lanzamos al inicio y que ya se terminó
+    - Transformation Specification
+        - Elegir la transformación que hicimos en paso anterior
+    - Package Name
+        - Usaremos DEMO como esquema SQL al que proyectar nuestra transformación
+    - Launch Analysis Task
+7.	Acceder al Portal de Gestión en namespace DEMO
 8.	Ir a System Explorer -> SQL
 9.	En Filter ponerle DEMO*
 10.	Abrir la pestaña Tables
@@ -187,4 +195,5 @@ do ##class(HS.FHIRServer.Tools.DataLoader).SubmitResourceFiles("C:\fhir_bundles_
 14.	Mientras se están cargando los 305 bundles fhir – algo que tardará unos minutos – aprovechemos para repetir las búsquedas SQL y comprobar la actualización en tiempo real de las tablas SQL.
 
 ## Cierre del taller
-Para terminar, haremos una demostración del consumo de datos fhir proyectados a SQL. Para ello usaremos el conector IRIS de PowerBI. 
+Para terminar, haremos una demostración del consumo de datos fhir proyectados a SQL. Para ello usaremos el conector IRIS de PowerBI. La hará el ponente desde su laptop.
+¡Enhorabuena! Has terminado el viaje del paciente a la poblacion.
