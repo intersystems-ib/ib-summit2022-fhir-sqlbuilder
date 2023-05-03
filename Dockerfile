@@ -1,5 +1,6 @@
 # ARG IMAGE=intersystems/irishealth:2022.1.0FHIRSQL.110.0
 ARG IMAGE=intersystems/irishealth:2022.3.0FHIRSQL.60.0
+ARG IMAGE=containers.intersystems.com/intersystems/irishealth-ml-community-arm64:2022.3.0.606.0
 FROM $IMAGE
 
 USER root
@@ -12,7 +13,7 @@ WORKDIR /opt/irisapp
 USER ${ISC_PACKAGE_MGRUSER}
 
 # copy license
-COPY iris.key /usr/irissys/mgr/iris.key
+#COPY iris.key /usr/irissys/mgr/iris.key
 
 # copy source
 COPY iris.script iris.script
